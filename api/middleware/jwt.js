@@ -34,7 +34,6 @@ const verificarToken = async(req,token)=>{
             encoder.encode(env.JWT)
         )
         const baseQuitada = req.baseUrl.slice(5)
-        console.log(baseQuitada);
         let result = await usuario.findOne({
             _id: new ObjectId(jwtData.payload.id),
             [`permisos.${baseQuitada}`]: `${req.headers['accept-version']}`

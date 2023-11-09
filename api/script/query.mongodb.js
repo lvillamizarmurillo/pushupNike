@@ -96,22 +96,46 @@ use('nike');
 db.solicitud.insertMany([
     {
         email: 'pedro@gmail.com',
+        nombre: 'nike ss1'
+    },
+    {
+        email: 'pedro@gmail.com',
+        nombre: 'nike ss2'
+    },
+    {
+        email: 'cocina@gmail.com',
+        nombre: 'nike ss4'
+    },
+    {
+        email: 'cocina@gmail.com',
+        nombre: 'nike ss1'
+    }
+])
+
+use('nike');
+db.ventas.insertMany([
+    {
+        email: 'pedro@gmail.com',
         nombre: 'nike ss1',
-        fechaSolicitud: '2023-01-01'
+        admin: 'hot@gmail.com',
+        fechaVentas: '2023-01-01'
     },
     {
         email: 'pedro@gmail.com',
         nombre: 'nike ss2',
-        fechaSolicitud: '2023-01-01'
+        admin: 'hot@gmail.com',
+        fechaVentas: '2023-01-01'
     },
     {
         email: 'cocina@gmail.com',
         nombre: 'nike ss4',
-        fechaSolicitud: '2023-03-01'
+        admin: 'hot@gmail.com',
+        fechaVentas: '2023-03-01'
     },
     {
         email: 'cocina@gmail.com',
         nombre: 'nike ss1',
-        fechaSolicitud: '2023-03-05'
+        admin: 'hot@gmail.com',
+        fechaVentas: '2023-03-05'
     }
 ])
