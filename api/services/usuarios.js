@@ -1,8 +1,10 @@
 import db from '../config/conection.js';
 import { validationResult } from 'express-validator';
 import { DTO } from '../middleware/controllers/registro.js';
+import { traerUserLogin } from '../utils/funcionesGlobales.js';
+import { ObjectId } from 'mongodb';
 
-const usuario = await db.getconnection().nombreTabla('usuarios').conectar();
+const usuario = await db.getconnection().nombreTabla('usuario').conectar();
 
 export default class Usuario{
     static async postUser(req,res){
@@ -25,5 +27,21 @@ export default class Usuario{
           }
         await usuario.insertOne(req.body);
         res.status(200).send({status: 200, message: "Usuario registrado con exito"});
+    }
+    static async getInfo(req,res){
+      const user = await traerUserLogin(req);
+        const data = await usuario.aggregate([
+            {
+                $match: {_id: new ObjectId(user._id.toString())}
+            },
+            {
+                $project: {
+                    _id: 0,
+                    rol: 0,
+                    permisos: 0
+                }
+            }
+        ]).toArray();
+        res.status(200).send({status: 200, message: data})
     }
 }

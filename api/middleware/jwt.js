@@ -3,10 +3,11 @@ import db from '../config/conection.js';
 import { ObjectId } from 'mongodb';
 import { validationResult } from 'express-validator';
 import { DTO } from '../middleware/controllers/login.js';
+import { loadEnv } from 'vite';
 
 const env = loadEnv('developmend', process.cwd(), 'JWT')
 
-const usuario = await db.getconnection().nombreTabla('usuarios').conectar();
+const usuario = await db.getconnection().nombreTabla('usuario').conectar();
 
 const crearToken = async(req,res,next)=>{
     if(!req.rateLimit) return;

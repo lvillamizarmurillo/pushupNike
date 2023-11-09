@@ -7,7 +7,7 @@ export default class Connect{
     static instancia;
     dbMongo = new MongoClient(env.URI_MONGODB);
     dbnombre = 'usuarios';
-    dbcoleccion = 'servientrega';
+    dbcoleccion = 'nike';
     db;
 
     static getconnection(){

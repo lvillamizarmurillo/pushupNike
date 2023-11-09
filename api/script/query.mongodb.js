@@ -1,40 +1,40 @@
 use('nike');
-db.usuarios.insertMany([
+db.usuario.insertMany([
     {
       nombre: "maria",
       apellido: "limpieza",
-      correo: "hot@gmail.com",
+      email: "hot@gmail.com",
       password: "963",
       rol: 'admin',
       permisos: {
-          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3,1.0.4","1.0.5","1.0.6","1.0.7"],
-          "/admin": ["1.0.0","1.0.1","1.0.2","1.0.3,1.0.4","1.0.5","1.0.6","1.0.7"]
+          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7"],
+          "/admin": ["1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7"]
         }
     },
     {
       nombre: "damara",
       apellido: "cocina",
-      correo: "cocina@gmail.com",
+      email: "cocina@gmail.com",
       password: "963",
       rol: 'usuario',
       permisos: {
-          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3,1.0.4","1.0.5","1.0.6","1.0.7"]
+          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7"]
         }
     },
     {
       nombre: "pedro",
       apellido: "ramirez",
-      correo: "pedro@gmail.com",
+      email: "pedro@gmail.com",
       password: "963",
       rol: 'usuario',
       permisos: {
-          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3,1.0.4","1.0.5","1.0.6","1.0.7"]
+          "/usuario": ["1.0.0","1.0.1","1.0.2","1.0.3","1.0.4","1.0.5","1.0.6","1.0.7"]
         }
     }
 ])
 
 use('nike');
-db.productos.insertMany([
+db.producto.insertMany([
     {
         nombre: 'nike ss1',
         imagen: 'sin imagen aun',
