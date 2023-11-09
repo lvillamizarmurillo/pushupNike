@@ -1,6 +1,8 @@
 import { jwtVerify, SignJWT } from 'jose';
 import db from '../config/conection.js';
 import { ObjectId } from 'mongodb';
+import { validationResult } from 'express-validator';
+import { DTO } from '../middleware/controllers/login.js';
 
 const env = loadEnv('developmend', process.cwd(), 'JWT')
 
@@ -8,6 +10,9 @@ const usuario = await db.getconnection().nombreTabla('usuarios').conectar();
 
 const crearToken = async(req,res,next)=>{
     if(!req.rateLimit) return;
+    await Promise.all(DTO[`1.0.0`].map(res => res.run(req)));
+    const {errors} = validationResult(req);
+    if (errors.length) return res.status(400).json({ errors });
     const encoder = new TextEncoder();
     const result = await usuario.findOne({email: req.body.email, password: req.body.password})
     if(!result) return res.status(401).send({status:401,message:'Usuario no encontrado'})
